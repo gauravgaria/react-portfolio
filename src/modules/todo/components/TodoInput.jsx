@@ -1,23 +1,18 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const TodoInput = ({onNewItem})=>{
     
-    const[item,setItem] = useState("");
 
-    const[dueDate,setDueDate] = useState("");
+    const itemName = useRef();
+    const dueDateElement = useRef();
 
-    const getItemValue = (event)=>{
-        setItem(event.target.value);
-    }
-
-    const getDateValue = (event)=>{
-        setDueDate(event.target.value);
-    }
 
     const handleOnClick = () =>{
+      const item = itemName.current.value;
+      const dueDate = dueDateElement.current.value;
         onNewItem(item,dueDate);
-        setItem("");
-        setDueDate("");
+        itemName.current.value = "";
+        dueDateElement.current.value ="";
     }
 
 
@@ -27,10 +22,10 @@ const TodoInput = ({onNewItem})=>{
             <div className='text-center container'>
               <div className='row'>
                 <div className='col-4'>
-                  <input type='text' placeholder='Enter todo item' value={item} onChange={getItemValue}/>
+                  <input type='text' placeholder='Enter todo item' ref={itemName}/>
                 </div>
                 <div className='col-4'>
-                  <input type='date' value={dueDate} onChange={getDateValue}/>
+                  <input type='date' ref={dueDateElement}/>
                 </div>
                 <div className='col-4'>
                   <button className='btn btn-success' onClick={handleOnClick}>Add item</button>
