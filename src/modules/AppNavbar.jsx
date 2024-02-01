@@ -13,7 +13,7 @@ const AppNavbar = () =>{
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={NavLink} to="/todo">Todo</Nav.Link>
-            <Nav.Link as={NavLink} to="/contact">Contact</Nav.Link>
+            <Nav.Link as={NavLink} to="/cart-app">Cart App</Nav.Link>
             <Nav.Link as={NavLink} to="/users">Users</Nav.Link>
             <NavDropdown title="Services" id="collapsible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
